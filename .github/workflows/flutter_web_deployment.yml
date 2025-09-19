@@ -43,7 +43,7 @@ jobs:
       #   run: flutter test
 
       - name: Build web app
-        run: flutter build web --release
+        run: flutter build web --release --base-href /CombiToys/
 
       - name: Upload build artifacts # for deployment
         uses: actions/upload-artifact@v4
