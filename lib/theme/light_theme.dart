@@ -27,7 +27,7 @@ ThemeData lightTheme = ThemeData(
   ),
   textTheme: TextTheme(
     titleMedium: TextStyle(
-      fontSize: 18,
+      fontSize: 16,
       color: darkColor
     )
   ),

@@ -12,10 +12,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get homePage => 'Startseite';
 
   @override
-  String get language => 'Sprache: ';
+  String get language => 'Sprache:';
 
   @override
-  String get appearance => 'Erscheinungsbild: ';
+  String get appearance => 'Erscheinungsbild:';
 
   @override
   String get themeAutomatic => 'Automatisch';
@@ -25,4 +25,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get themeLight => 'Hell';
+
+  @override
+  String get widgetsPage => 'Material Widgets Seite';
 }

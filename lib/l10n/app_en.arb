@@ -1,8 +1,8 @@
 {
 	"homePage": "Home Page",
-	"language": "Language: ",
-	"appearance": "Appearance: ",
+	"language": "Language:",
+	"appearance": "Appearance:",
 	"themeAutomatic": "Automatic",
 	"themeDark": "Dark",
-	"themeLight": "Light"
-}
+	"themeLight": "Light",
+	"widgetsPage": "Material Widgets Page"}

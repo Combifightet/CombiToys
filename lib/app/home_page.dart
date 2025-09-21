@@ -1,5 +1,6 @@
 
 import 'package:combi_toys/app/combi_toys.dart';
+import 'package:combi_toys/app/widgets_page.dart';
 import 'package:flutter/material.dart';
 
 import 'package:combi_toys/l10n/generated/app_localizations.dart';
@@ -44,6 +45,9 @@ class _HomePageState extends State<HomePage> {
                   AppLocalizations.of(context)!.appearance,
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
+                SizedBox(
+                  width: 16,
+                ),
                 DropdownButton<ThemeMode>(
                   value: _selectedTheme,
                   items: [
@@ -69,12 +73,18 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
+            SizedBox(
+              height: 8,
+            ),
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
                   AppLocalizations.of(context)!.language,
                   style: Theme.of(context).textTheme.titleMedium,
+                ),
+                SizedBox(
+                  width: 16,
                 ),
                 Builder(
                   builder: (context) {
@@ -107,6 +117,19 @@ class _HomePageState extends State<HomePage> {
                 ),
               ],
             ),
+            SizedBox(
+              height: 8,
+            ),
+            ElevatedButton(
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (BuildContext context) => WidgetsPage()
+                )
+              ),
+              child: Text(
+                AppLocalizations.of(context)!.widgetsPage
+              )
+            )
           ],
         ),
       ),

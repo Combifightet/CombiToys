@@ -107,13 +107,13 @@ abstract class AppLocalizations {
   /// No description provided for @language.
   ///
   /// In en, this message translates to:
-  /// **'Language: '**
+  /// **'Language:'**
   String get language;
 
   /// No description provided for @appearance.
   ///
   /// In en, this message translates to:
-  /// **'Appearance: '**
+  /// **'Appearance:'**
   String get appearance;
 
   /// No description provided for @themeAutomatic.
@@ -133,6 +133,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Light'**
   String get themeLight;
+
+  /// No description provided for @widgetsPage.
+  ///
+  /// In en, this message translates to:
+  /// **'Material Widgets Page'**
+  String get widgetsPage;
 }
 
 class _AppLocalizationsDelegate

@@ -1,8 +1,9 @@
 {
 	"homePage": "Startseite",
-	"language": "Sprache: ",
-	"appearance": "Erscheinungsbild: ",
+	"language": "Sprache:",
+	"appearance": "Erscheinungsbild:",
 	"themeAutomatic": "Automatisch",
 	"themeDark": "Dunkel",
-	"themeLight": "Hell"
+	"themeLight": "Hell",
+	"widgetsPage": "Material Widgets Seite"
 }
