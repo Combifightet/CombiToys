@@ -21,9 +21,6 @@ class CombiToys extends StatelessWidget {
           supportedLocales: AppLocalizations.supportedLocales,
           locale: globalSettingsModel.locale,
           localeListResolutionCallback: (List<Locale>? preferredLocales, Iterable<Locale> supportedLocales) {
-            print('-----------------------------------');
-            print('preferredLocales: $preferredLocales');
-            print('supportedLocales: $supportedLocales');
             if (preferredLocales == null || preferredLocales.isEmpty) {
               return supportedLocales.first;
             }
