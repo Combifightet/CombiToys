@@ -13,4 +13,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get language => 'Language: ';
+
+  @override
+  String get appearance => 'Appearance: ';
+
+  @override
+  String get themeAutomatic => 'Automatic';
+
+  @override
+  String get themeDark => 'Dark';
+
+  @override
+  String get themeLight => 'Light';
 }

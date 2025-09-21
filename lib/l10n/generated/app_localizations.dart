@@ -109,6 +109,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Language: '**
   String get language;
+
+  /// No description provided for @appearance.
+  ///
+  /// In en, this message translates to:
+  /// **'Appearance: '**
+  String get appearance;
+
+  /// No description provided for @themeAutomatic.
+  ///
+  /// In en, this message translates to:
+  /// **'Automatic'**
+  String get themeAutomatic;
+
+  /// No description provided for @themeDark.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark'**
+  String get themeDark;
+
+  /// No description provided for @themeLight.
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
+  String get themeLight;
 }
 
 class _AppLocalizationsDelegate

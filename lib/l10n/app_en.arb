@@ -1,4 +1,8 @@
 {
 	"homePage": "Home Page",
-	"language": "Language: "
+	"language": "Language: ",
+	"appearance": "Appearance: ",
+	"themeAutomatic": "Automatic",
+	"themeDark": "Dark",
+	"themeLight": "Light"
 }
