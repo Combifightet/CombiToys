@@ -140,40 +140,76 @@ class _WidgetsPageState extends State<WidgetsPage> {
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
-                                      Text('Small'),
-                                      SizedBox(height: 8,),
-                                      Text('Regular'),
-                                      SizedBox(height: 8,),
-                                      Text('Large'),
-                                      SizedBox(height: 8,),
-                                      Text('Extended'),
+                                      SizedBox(height: 12),
+                                      Text('Small:'),
+                                      SizedBox(height: 34),
+                                      Text('Regular:'),
+                                      SizedBox(height: 64),
+                                      Text('Large:'),
+                                      SizedBox(height: 64),
+                                      Text('Extended:'),
                                     ],
                                   ),
-                                  SizedBox(width: 16,),
+                                  SizedBox(width: 16),
                                   Column(
                                     children: [
-                                      FloatingActionButton.small(onPressed: () {}, child: const Icon(Icons.check)),
-                                      SizedBox(height: 8,),
-                                      FloatingActionButton(onPressed: () {}, child: const Icon(Icons.check)),
-                                      SizedBox(height: 8,),
-                                      FloatingActionButton.large(onPressed: () {}, child: const Icon(Icons.check)),
-                                      SizedBox(height: 8,),
-                                      FloatingActionButton.extended(onPressed: () {}, label: Text('OK'), icon: const Icon(Icons.check)),
+                                      FloatingActionButton.small(
+                                        onPressed: () {},
+                                        heroTag: 'small',
+                                        child: const Icon(Icons.check)
+                                      ),
+                                      SizedBox(height: 8),
+                                      FloatingActionButton(
+                                        onPressed: () {},
+                                        heroTag: 'normal',
+                                        child: const Icon(Icons.check)
+                                      ),
+                                      SizedBox(height: 8),
+                                      FloatingActionButton.large(
+                                        onPressed: () {},
+                                        heroTag: 'large',
+                                        child: const Icon(Icons.check)
+                                      ),
+                                      SizedBox(height: 8),
+                                      FloatingActionButton.extended(
+                                        onPressed: () {},
+                                        heroTag: 'extended',
+                                        label: Text('OK'), icon: const Icon(Icons.check)
+                                      ),
                                     ],
                                   ),
-                                  SizedBox(width: 16,),
+                                  SizedBox(width: 16),
                                   Column(
                                     children: [
-                                      FloatingActionButton.small(onPressed: null, child: const Icon(Icons.check)),
-                                      SizedBox(height: 8,),
-                                      FloatingActionButton(onPressed: null, child: const Icon(Icons.check)),
-                                      SizedBox(height: 8,),
-                                      FloatingActionButton.large(onPressed: null, child: const Icon(Icons.check)),
-                                      SizedBox(height: 8,),
-                                      FloatingActionButton.extended(onPressed: null, label: Text('OK'), icon: const Icon(Icons.check)),
+                                      FloatingActionButton.small(
+                                        onPressed: null,
+                                        heroTag: 'small_disabled',
+                                        child: const Icon(Icons.check)
+                                      ),
+                                      SizedBox(height: 8),
+                                      FloatingActionButton(
+                                        onPressed: null,
+                                        heroTag: 'normal_disabled',
+                                        child: const Icon(Icons.check)
+                                      ),
+                                      SizedBox(height: 8),
+                                      FloatingActionButton.large(
+                                        onPressed: null,
+                                        heroTag: 'large_disabled',
+                                        child: const Icon(Icons.check)
+                                      ),
+                                      SizedBox(height: 8),
+                                      FloatingActionButton.extended(
+                                        onPressed: null,
+                                        heroTag: 'extended_disabled',
+                                        label: Text('OK'), icon: const Icon(Icons.check)
+                                      ),
                                     ],
                                   ),
                                 ],
@@ -182,18 +218,22 @@ class _WidgetsPageState extends State<WidgetsPage> {
                             ShowcaseItem(
                               heading: 'IconButton',
                               child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Column(
-                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
-                                      Text('Normal'),
-                                      SizedBox(height: 8,),
-                                      Text('Filled'),
-                                      SizedBox(height: 8,),
-                                      Text('FilledTonal'),
-                                      SizedBox(height: 8,),
-                                      Text('Outlined'),
-                                      SizedBox(height: 8,),
+                                      SizedBox(height: 12),
+                                      Text('Normal:'),
+                                      SizedBox(height: 27),
+                                      Text('Filled:'),
+                                      SizedBox(height: 27),
+                                      Text('FilledTonal:'),
+                                      SizedBox(height: 27),
+                                      Text('Outlined:'),
+                                      SizedBox(height: 27),
                                     ],
                                   ),
                                   SizedBox(width: 16,),
@@ -201,16 +241,16 @@ class _WidgetsPageState extends State<WidgetsPage> {
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
                                       IconButton(onPressed: () {}, icon: const Icon(Icons.add)),
-                                      SizedBox(height: 8,),
+                                      SizedBox(height: 8),
                                       IconButton.filled(onPressed: () {}, icon: const Icon(Icons.add)),
-                                      SizedBox(height: 8,),
+                                      SizedBox(height: 8),
                                       IconButton.filledTonal(onPressed: () {}, icon: const Icon(Icons.add)),
-                                      SizedBox(height: 8,),
+                                      SizedBox(height: 8),
                                       IconButton.outlined(onPressed: () {}, icon: const Icon(Icons.add)),
-                                      SizedBox(height: 8,),
+                                      SizedBox(height: 8),
                                     ],
                                   ),
-                                  SizedBox(width: 16,),
+                                  SizedBox(width: 16),
                                   Column(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
@@ -229,7 +269,7 @@ class _WidgetsPageState extends State<WidgetsPage> {
                             ),
                             ShowcaseItem(
                               heading: 'PopupMenuButton',
-                              child: Column(
+                              child: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   PopupMenuButton(
@@ -241,7 +281,7 @@ class _WidgetsPageState extends State<WidgetsPage> {
                                       const PopupMenuItem(value: 3, child: Text('Item 3')),
                                     ],
                                   ),
-                                  SizedBox(height: 8,),
+                                  SizedBox(width: 16),
                                   PopupMenuButton(
                                     enabled: false,
                                     initialValue: 1,
@@ -255,9 +295,57 @@ class _WidgetsPageState extends State<WidgetsPage> {
                             ),
                             ShowcaseItem(
                               heading: 'RefreshIndicator',
+                              child: SizedBox(
+                                width: 50,
+                                height: 50,
+                                child: RefreshProgressIndicator()
+                              ),
                             ),
                             ShowcaseItem(
                               heading: 'SegmentedButton',
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  SegmentedButton(
+                                    segments: [
+                                      ButtonSegment(
+                                        value: 0,
+                                        label: Text('0')
+                                      ),
+                                      ButtonSegment(
+                                        value: 1,
+                                        label: Text('1')
+                                      ),
+                                      ButtonSegment(
+                                        value: 2,
+                                        label: Text('2')
+                                      )
+                                    ],
+                                    selected: {1},
+                                    onSelectionChanged: (_) {},
+                                  ),
+                                  SizedBox(height: 8),
+                                  SegmentedButton(
+                                    segments: [
+                                      ButtonSegment(
+                                        value: 0,
+                                        label: Text('0')
+                                      ),
+                                      ButtonSegment(
+                                        value: 1,
+                                        label: Text('1')
+                                      ),
+                                      ButtonSegment(
+                                        value: 2,
+                                        label: Text('2')
+                                      )
+                                    ],
+                                    selected: {1},
+                                    onSelectionChanged: null,
+                                  ),
+                                ],
+                              ),
                             ),
                           ],
                         ),
@@ -273,6 +361,28 @@ class _WidgetsPageState extends State<WidgetsPage> {
                           spacing: 16,
                           runSpacing: 16,
                           children: [
+                            ShowcaseItem(
+                              heading: 'Title',
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+
+                                    ]
+                                  ),
+                                  SizedBox(width: 16),
+                                  Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+
+                                    ]
+                                  )
+                                ],
+                              ),
+                            ),
                             // - Badge
                             // - CircularProgressIndicator
                             // - LinearProgressIndicator
@@ -292,6 +402,28 @@ class _WidgetsPageState extends State<WidgetsPage> {
                           spacing: 16,
                           runSpacing: 16,
                           children: [
+                            ShowcaseItem(
+                              heading: 'Title',
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+
+                                    ]
+                                  ),
+                                  SizedBox(width: 16),
+                                  Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+
+                                    ]
+                                  )
+                                ],
+                              ),
+                            ),
                             // - AlertDialog
                             // - BottomSheet
                             // - Card
@@ -315,6 +447,28 @@ class _WidgetsPageState extends State<WidgetsPage> {
                           spacing: 16,
                           runSpacing: 16,
                           children: [
+                            ShowcaseItem(
+                              heading: 'Title',
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+
+                                    ]
+                                  ),
+                                  SizedBox(width: 16),
+                                  Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+
+                                    ]
+                                  )
+                                ],
+                              ),
+                            ),
                             // - AppBar
                             // - BottomAppBar
                             // - BottomNavigationBar
@@ -338,6 +492,28 @@ class _WidgetsPageState extends State<WidgetsPage> {
                           spacing: 16,
                           runSpacing: 16,
                           children: [
+                            ShowcaseItem(
+                              heading: 'Title',
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+
+                                    ]
+                                  ),
+                                  SizedBox(width: 16),
+                                  Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+
+                                    ]
+                                  )
+                                ],
+                              ),
+                            ),
                             // - CarouselView
                             // - Checkbox
                             // - Chip
@@ -361,6 +537,28 @@ class _WidgetsPageState extends State<WidgetsPage> {
                           spacing: 16,
                           runSpacing: 16,
                           children: [
+                            ShowcaseItem(
+                              heading: 'Title',
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+
+                                    ]
+                                  ),
+                                  SizedBox(width: 16),
+                                  Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+
+                                    ]
+                                  )
+                                ],
+                              ),
+                            ),
                             // - Text
                             // - TextField
                           ],
