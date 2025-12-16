@@ -365,6 +365,7 @@ class _WidgetsPageState extends State<WidgetsPage> {
                                 children: [
                                   Column(
                                     mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       SizedBox(height: 12),
                                       Text('Normal:'),
@@ -451,36 +452,308 @@ class _WidgetsPageState extends State<WidgetsPage> {
                           runSpacing: 16,
                           children: [
                             ShowcaseItem(
-                              heading: 'Title',
+                              heading: 'AlertDialog',
+                              child: ElevatedButton(
+                                onPressed: () => showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) => AlertDialog(
+                                    title: const Text('AlertDialog Title'),
+                                    content: const Text('AlertDialog description'),
+                                    actions: <Widget>[
+                                      TextButton(onPressed: () => Navigator.pop(context, 'close'), child: const Text('close')),
+                                    ],
+                                  )
+                                ),
+                                child: Text('show AlertDialog')
+                              ),
+                            ),
+                            ShowcaseItem(
+                              heading: 'BottomSheet',
+                              child: ElevatedButton(
+                                onPressed: () => showModalBottomSheet(
+                                  context: context,
+                                  builder: (BuildContext context) => BottomSheet(
+                                    onClosing: () {},
+                                    builder: (BuildContext context) => SizedBox(
+                                      height: 200,
+                                      child: Center(child: Text('Bottom Sheet Content'))
+                                    ),
+                                  )
+                                ),
+                                child: Text('show BottomSheet')
+                              ),
+                            ),
+                            ShowcaseItem(
+                              heading: 'Card',
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Column(
                                     mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-
+                                      SizedBox(height: 26),
+                                      Text('Normal:'),
+                                      SizedBox(height: 56),
+                                      Text('Filled:'),
+                                      SizedBox(height: 56),
+                                      Text('Outlined:'),
                                     ]
                                   ),
                                   SizedBox(width: 16),
                                   Column(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
-
+                                      Card(
+                                        child: SizedBox(width: 80, height: 60),
+                                      ),
+                                      SizedBox(height: 8),
+                                      Card.filled(
+                                        child: SizedBox(width: 80, height: 60),
+                                      ),
+                                      SizedBox(height: 8),
+                                      Card.outlined(
+                                        child: SizedBox(width: 80, height: 60),
+                                      )
                                     ]
                                   )
                                 ],
                               ),
                             ),
-                            // - AlertDialog
-                            // - BottomSheet
-                            // - Card
-                            // - DataTable
-                            // - Divider
-                            // - ExpansionPanel
-                            // - ListTile
-                            // - SimpleDialog
-                            // - Stepper
+                            ShowcaseItem(
+                              heading: 'DataTable',
+                              child: DataTable(
+                                onSelectAll: (_) {},
+                                sortAscending: false,
+                                sortColumnIndex: 1,
+                                columns: <DataColumn>[
+                                  DataColumn(
+                                    onSort: (_, __) {},
+                                    label: Expanded(
+                                      child: Text('Name', style: TextStyle(fontStyle: FontStyle.italic)),
+                                    ),
+                                  ),
+                                  DataColumn(
+                                    onSort: (_, __) {},
+                                    label: Expanded(
+                                      child: Text('Age', style: TextStyle(fontStyle: FontStyle.italic)),
+                                    ),
+                                  ),
+                                  DataColumn(
+                                    onSort: (_, __) {},
+                                    label: Expanded(
+                                      child: Text('Role', style: TextStyle(fontStyle: FontStyle.italic)),
+                                    ),
+                                  ),
+                                ],
+                                rows: <DataRow>[
+                                  DataRow(
+                                    cells: <DataCell>[
+                                      DataCell(Text('Sarah')),
+                                      DataCell(Text('19')),
+                                      DataCell(Text('Student')),
+                                    ],
+                                    onSelectChanged: (_) {}
+                                  ),
+                                  DataRow(
+                                    cells: <DataCell>[
+                                      DataCell(Text('William')),
+                                      DataCell(Text('27')),
+                                      DataCell(Text('Associate Professor')),
+                                    ],
+                                    onSelectChanged: (_) {}
+                                  ),
+                                  DataRow(
+                                    cells: <DataCell>[
+                                      DataCell(Text('Janine')),
+                                      DataCell(Text('43')),
+                                      DataCell(Text('Professor')),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            ShowcaseItem(
+                              heading: 'Divider',
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text('Normal:'),
+                                      SizedBox(height: 21),
+                                      Text('Vertical:'),
+                                      SizedBox(height: 21),
+                                      Text('PopupMenu:'),
+                                    ]
+                                  ),
+                                  SizedBox(width: 16),
+                                  Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      SizedBox(height: 3),
+                                      SizedBox(
+                                        width: 100,
+                                        child: Divider()
+                                      ),
+                                      SizedBox(height: 8),
+                                      SizedBox(
+                                        height: 50,
+                                        child: VerticalDivider()
+                                      ),
+                                      SizedBox(height: 8),
+                                      SizedBox(
+                                        width: 100,
+                                        child: PopupMenuDivider()
+                                      ),
+                                    ]
+                                  )
+                                ],
+                              ),
+                            ),
+                            ShowcaseItem(
+                              heading: 'ExpansionPanelList',
+                              child: SizedBox(
+                                width: 250,
+                                child: ExpansionPanelList(
+                                expansionCallback: (int index, bool isExpanded) {},
+                                children: [
+                                  ExpansionPanel(
+                                    canTapOnHeader: true,
+                                    headerBuilder: (BuildContext context, bool isExpanded) {
+                                      return ListTile(title: Text('Item 1'),);
+                                    },
+                                    body: ListTile(
+                                      title: Text('Title'),
+                                      subtitle: Text('Subtitle'),
+                                      onTap: () {},
+                                    ),
+                                    isExpanded: true
+                                  ),
+                                  ExpansionPanel(
+                                    canTapOnHeader: true,
+                                    headerBuilder: (BuildContext context, bool isExpanded) {
+                                      return ListTile(title: Text('Item 2'),);
+                                    },
+                                    body: ListTile(
+                                      title: Text('Title'),
+                                      subtitle: Text('Subtitle'),
+                                      onTap: () {},
+                                    ),
+                                    isExpanded: false
+                                  ),
+                                  ExpansionPanel(
+                                    headerBuilder: (BuildContext context, bool isExpanded) {
+                                      return ListTile(title: Text('Item 3'),);
+                                    },
+                                    body: ListTile(
+                                      title: Text('Title'),
+                                      subtitle: Text('Subtitle'),
+                                      onTap: () {},
+                                    ),
+                                    isExpanded: false
+                                  ),
+                                ],
+                                                            ),
+                              ),
+                            ),
+                            ShowcaseItem(
+                              heading: 'ListTile',
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      SizedBox(height: 24),
+                                      Text('Normal:'),
+                                      SizedBox(height: 50),
+                                      Text('Selected:'),
+                                    ]
+                                  ),
+                                  SizedBox(width: 16),
+                                  Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      SizedBox(
+                                        width: 200,
+                                        child: ListTile(
+                                          leading: Icon(Icons.help),
+                                          title: Text('Title'),
+                                          subtitle: Text('Subtitle'),
+                                          trailing: Icon(Icons.help),
+                                          selected: false,
+                                          onTap: () {},
+                                        ),
+                                      ),
+                                      SizedBox(height: 8),
+                                      SizedBox(
+                                        width: 200,
+                                        child: ListTile(
+                                          leading: Icon(Icons.help),
+                                          title: Text('Title'),
+                                          subtitle: Text('Subtitle'),
+                                          trailing: Icon(Icons.help),
+                                          selected: true,
+                                          onTap: () {},
+                                        ),
+                                      )
+                                    ]
+                                  )
+                                ],
+                              ),
+                            ),
+                            ShowcaseItem(
+                              heading: 'SimpleDialog',
+                              child: ElevatedButton(
+                                onPressed: () => showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) => SimpleDialog(
+                                    title: const Text('SimpleDialog Title'),
+                                    children: [
+                                      Text('Child 1'),
+                                      SizedBox(height: 8),
+                                      Text('Child 2'),
+                                      SizedBox(height: 8),
+                                      Text('Child 3'),
+                                    ],
+                                  )
+                                ),
+                                child: Text('show SimpleDialog')
+                              ),
+                            ),
+                            ShowcaseItem(
+                              heading: 'Stepper',
+                              child: SizedBox(
+                                width: 300,
+                                child: Stepper(
+                                  currentStep: 1,
+                                  onStepCancel: () {},
+                                  onStepContinue: () {},
+                                  onStepTapped: (_) {},
+                                  steps: [
+                                    Step(
+                                      title: Text('Step 1'),
+                                      content: Text('Content for step 1')
+                                    ),
+                                    Step(
+                                      title: Text('Step 2'),
+                                      content: Text('Content for step 2')
+                                    ),
+                                    Step(
+                                      title: Text('Step 3'),
+                                      content: Text('Content for step 3')
+                                    ),
+                                  ]
+                                ),
+                              )
+                            ),
                           ],
                         ),
                         SizedBox(height: 32,),
@@ -503,6 +776,7 @@ class _WidgetsPageState extends State<WidgetsPage> {
                                 children: [
                                   Column(
                                     mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
 
                                     ]
@@ -548,6 +822,7 @@ class _WidgetsPageState extends State<WidgetsPage> {
                                 children: [
                                   Column(
                                     mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
 
                                     ]
@@ -593,6 +868,7 @@ class _WidgetsPageState extends State<WidgetsPage> {
                                 children: [
                                   Column(
                                     mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
 
                                     ]
