@@ -295,11 +295,7 @@ class _WidgetsPageState extends State<WidgetsPage> {
                             ),
                             ShowcaseItem(
                               heading: 'RefreshIndicator',
-                              child: SizedBox(
-                                width: 50,
-                                height: 50,
-                                child: RefreshProgressIndicator()
-                              ),
+                              child: RefreshProgressIndicator(),
                             ),
                             ShowcaseItem(
                               heading: 'SegmentedButton',
@@ -362,7 +358,7 @@ class _WidgetsPageState extends State<WidgetsPage> {
                           runSpacing: 16,
                           children: [
                             ShowcaseItem(
-                              heading: 'Title',
+                              heading: 'Badge',
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -370,24 +366,76 @@ class _WidgetsPageState extends State<WidgetsPage> {
                                   Column(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
-
+                                      SizedBox(height: 12),
+                                      Text('Normal:'),
+                                      SizedBox(height: 27),
+                                      Text('Count:'),
                                     ]
                                   ),
                                   SizedBox(width: 16),
                                   Column(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
-
+                                      IconButton(
+                                        onPressed: null,
+                                        icon: Badge(
+                                          label: Text('Badge'),
+                                          child: const Icon(Icons.question_answer)
+                                        ),
+                                      ),
+                                      SizedBox(height: 8),
+                                      IconButton(
+                                        onPressed: null,
+                                        icon: Badge.count(
+                                          count: 100,
+                                          maxCount: 99,
+                                          child: const Icon(Icons.question_answer)
+                                        ),
+                                      )
                                     ]
                                   )
                                 ],
                               ),
                             ),
-                            // - Badge
-                            // - CircularProgressIndicator
-                            // - LinearProgressIndicator
-                            // - SnackBar
-                            // - Tooltip
+                            ShowcaseItem(
+                              heading: 'CircularProgressIndicator',
+                              child:  CircularProgressIndicator()
+                            ),
+                            ShowcaseItem(
+                              heading: 'LinearProgressIndicator',
+                              child: SizedBox(
+                                width: 300,
+                                child: LinearProgressIndicator()
+                              ),
+                            ),
+                            ShowcaseItem(
+                              heading: 'SnackBar',
+                              child: ElevatedButton(
+                                onPressed: () {
+                                  final snackBar = SnackBar(
+                                    content: const Text('A SnackBar.'),
+                                    action: SnackBarAction(
+                                      label: 'close',
+                                      onPressed: () {
+                                        // Some code to undo the change.
+                                      },
+                                    ),
+                                  );
+                                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                                },
+                                child: Text('show SnackBar')
+                              ),
+                            ),
+                            ShowcaseItem(
+                              heading: 'Tooltip',
+                              child: Tooltip(
+                                message: 'Tooltip',
+                                child: IconButton(
+                                  onPressed: null,
+                                  icon: const Icon(Icons.help)
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                         SizedBox(height: 32,),
