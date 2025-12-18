@@ -21,20 +21,22 @@ class _WidgetsPageState extends State<WidgetsPage> {
           BackButton()
         ],
       ),
-      body: Row(
-        children: [
-          Spacer(flex: 1,),
-          Expanded(
-            flex: 5,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                SizedBox(height: 16,),
-                Text('This Page is only used to preview the global Theme on most flutter widgets.'),
-                SizedBox(height: 32,),
-                Expanded(
-                  child: SingleChildScrollView(
+      body: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SizedBox(height: 16,),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: constraints.maxWidth/7),
+                child: Text('This Page is only used to preview the global Theme on most flutter widgets.'),
+              ),
+              SizedBox(height: 32,),
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: constraints.maxWidth/7),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisSize: MainAxisSize.min,
@@ -43,7 +45,8 @@ class _WidgetsPageState extends State<WidgetsPage> {
                           'Actions',
                           style: Theme.of(context).textTheme.headlineLarge
                         ),
-                        SizedBox(height: 8,),
+                        Divider(),
+                        SizedBox(height: 8),
                         Wrap(
                           spacing: 16,
                           runSpacing: 16,
@@ -345,14 +348,13 @@ class _WidgetsPageState extends State<WidgetsPage> {
                             ),
                           ],
                         ),
-                        SizedBox(height: 32,),
+                        SizedBox(height: 32),
                         Text(
                           'Communication',
                           style: Theme.of(context).textTheme.headlineLarge
                         ),
-                        SizedBox(
-                          height: 8,
-                        ),
+                        Divider(),
+                        SizedBox(height: 8),
                         Wrap(
                           spacing: 16,
                           runSpacing: 16,
@@ -439,14 +441,13 @@ class _WidgetsPageState extends State<WidgetsPage> {
                             ),
                           ],
                         ),
-                        SizedBox(height: 32,),
+                        SizedBox(height: 32),
                         Text(
                           'Containment',
                           style: Theme.of(context).textTheme.headlineLarge
                         ),
-                        SizedBox(
-                          height: 8,
-                        ),
+                        Divider(),
+                        SizedBox(height: 8),
                         Wrap(
                           spacing: 16,
                           runSpacing: 16,
@@ -756,14 +757,13 @@ class _WidgetsPageState extends State<WidgetsPage> {
                             ),
                           ],
                         ),
-                        SizedBox(height: 32,),
+                        SizedBox(height: 32),
                         Text(
                           'Navigation',
                           style: Theme.of(context).textTheme.headlineLarge
                         ),
-                        SizedBox(
-                          height: 8,
-                        ),
+                        Divider(),
+                        SizedBox(height: 8),
                         Wrap(
                           spacing: 16,
                           runSpacing: 16,
@@ -1044,20 +1044,35 @@ class _WidgetsPageState extends State<WidgetsPage> {
                             ),
                           ],
                         ),
-                        SizedBox(height: 32,),
+                        SizedBox(height: 32),
                         Text(
                           'Selection',
                           style: Theme.of(context).textTheme.headlineLarge
                         ),
-                        SizedBox(
-                          height: 8,
-                        ),
+                        Divider(),
+                        SizedBox(height: 8),
                         Wrap(
                           spacing: 16,
                           runSpacing: 16,
                           children: [
                             ShowcaseItem(
-                              heading: 'Title',
+                              heading: 'CarouselView',
+                              child: SizedBox(
+                                width: 250,
+                                height: 75,
+                                child: CarouselView(
+                                  controller: CarouselController(initialItem: 1),
+                                  itemExtent: 100,
+                                  children: [
+                                    Container(),
+                                    Container(),
+                                    Container(),
+                                  ]
+                                ),
+                              )
+                            ),
+                            ShowcaseItem(
+                              heading: 'Checkbox',
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -1066,7 +1081,178 @@ class _WidgetsPageState extends State<WidgetsPage> {
                                     mainAxisSize: MainAxisSize.min,
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-
+                                      Checkbox(value: true, onChanged: (_) {}),
+                                      Checkbox(value: false, onChanged: (_) {}),
+                                    ]
+                                  ),
+                                  SizedBox(width: 16),
+                                  Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Checkbox(value: true, onChanged: null),
+                                      Checkbox(value: false, onChanged: null),
+                                    ]
+                                  )
+                                ],
+                              ),
+                            ),
+                            ShowcaseItem(
+                              heading: 'Chip',
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Chip(
+                                    label: Text('Normal')
+                                  ),
+                                  SizedBox(height: 8),
+                                  Chip(
+                                    avatar: Icon(Icons.account_circle),
+                                    label: Text('avatar')
+                                  ),
+                                  SizedBox(height: 8),
+                                  Chip(
+                                    label: Text('Delete'),
+                                    onDeleted: () {},
+                                  ),
+                                ]
+                              )
+                            ),
+                            ShowcaseItem(
+                              heading: 'DatePicker',
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                              
+                                    ]
+                                  ),
+                                  SizedBox(width: 16),
+                                  Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      DatePickerDialog(
+                                        firstDate: DateTime.fromMillisecondsSinceEpoch(0), 
+                                        lastDate: DateTime.now(),
+                                        currentDate: DateTime.now(),
+                                      )
+                                    ]
+                                  )
+                                ],
+                              ),
+                            ),
+                            ShowcaseItem(
+                              heading: 'Radio',
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  RadioGroup(
+                                    groupValue: 1,
+                                    onChanged: (_) {},
+                                    child: Column(
+                                      children: [
+                                        Radio(value: 0),
+                                        Radio(value: 1),
+                                      ],
+                                    )
+                                  ),
+                                  RadioGroup(
+                                    groupValue: 1,
+                                    onChanged: (_) {},
+                                    child: Column(
+                                      children: [
+                                        Radio(value: 0, enabled: false),
+                                        Radio(value: 1, enabled: false),
+                                      ],
+                                    )
+                                  )
+                                ],
+                              ),
+                            ),
+                            ShowcaseItem(
+                              heading: 'Slider',
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      SizedBox(height: 14),
+                                      Text('Old (2023)'),
+                                      SizedBox(height: 28),
+                                      Text('New (2024)')
+                                    ]
+                                  ),
+                                  SizedBox(width: 16),
+                                  Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Slider(
+                                        year2023: true,
+                                        min: 0,
+                                        max: 100,
+                                        value: 33,
+                                        secondaryTrackValue: 67,
+                                        onChanged: (_) {},
+                                        divisions: 10,
+                                        label: '33',
+                                      ),
+                                      Slider(
+                                        year2023: false,
+                                        min: 0,
+                                        max: 100,
+                                        value: 33,
+                                        secondaryTrackValue: 67,
+                                        onChanged: (_) {},
+                                        divisions: 10,
+                                        label: '33',
+                                      ),
+                                    ]
+                                  )
+                                ],
+                              ),
+                            ),
+                            ShowcaseItem(
+                              heading: 'Switch',
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                              
+                                    ]
+                                  ),
+                                  SizedBox(width: 16),
+                                  Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                              
+                                    ]
+                                  )
+                                ],
+                              ),
+                            ),
+                            ShowcaseItem(
+                              heading: 'TimePicker',
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                              
                                     ]
                                   ),
                                   SizedBox(width: 16),
@@ -1079,25 +1265,15 @@ class _WidgetsPageState extends State<WidgetsPage> {
                                 ],
                               ),
                             ),
-                            // - CarouselView
-                            // - Checkbox
-                            // - Chip
-                            // - DatePicker
-                            // - Menu
-                            // - Radio
-                            // - Slider
-                            // - Switch
-                            // - TimePicker
                           ],
                         ),
-                        SizedBox(height: 32,),
+                        SizedBox(height: 32),
                         Text(
                           'Text',
                           style: Theme.of(context).textTheme.headlineLarge
                         ),
-                        SizedBox(
-                          height: 8,
-                        ),
+                        Divider(),
+                        SizedBox(height: 8),
                         Wrap(
                           spacing: 16,
                           runSpacing: 16,
@@ -1112,14 +1288,14 @@ class _WidgetsPageState extends State<WidgetsPage> {
                                     mainAxisSize: MainAxisSize.min,
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-
+                              
                                     ]
                                   ),
                                   SizedBox(width: 16),
                                   Column(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
-
+                              
                                     ]
                                   )
                                 ],
@@ -1130,16 +1306,15 @@ class _WidgetsPageState extends State<WidgetsPage> {
                           ],
                         ),
                       ],
-                    )
-                  ),
+                    ),
+                  )
                 ),
-                SizedBox(height: 32,),
-              ],
-            ),
-          ),          
-          Spacer(flex: 1,),
-        ],
-      ),
+              ),
+              SizedBox(height: 32,),
+            ],
+          );
+        }
+      )
     );
   }
 }
