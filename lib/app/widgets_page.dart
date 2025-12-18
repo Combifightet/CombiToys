@@ -769,37 +769,279 @@ class _WidgetsPageState extends State<WidgetsPage> {
                           runSpacing: 16,
                           children: [
                             ShowcaseItem(
-                              heading: 'Title',
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-
-                                    ]
+                              heading: 'AppBar',
+                              child: SizedBox(
+                                width: 250,
+                                height: 100,
+                                child: Scaffold(
+                                  appBar: AppBar(
+                                    title: Text('Title'),
+                                    leading: BackButton(
+                                      onPressed: () {},
+                                    ),
+                                    actions: [
+                                      IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+                                      IconButton(onPressed: () {}, icon: Icon(Icons.settings))
+                                    ],
                                   ),
-                                  SizedBox(width: 16),
-                                  Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-
-                                    ]
-                                  )
-                                ],
+                                ),
                               ),
                             ),
-                            // - AppBar
-                            // - BottomAppBar
-                            // - BottomNavigationBar
-                            // - Drawer
-                            // - NavigationBar
-                            // - NavigationDrawer
-                            // - NavigationRail
-                            // - SliverAppBar
-                            // - TabBar
+                            ShowcaseItem(
+                              heading: 'BottomAppBar',
+                              child: SizedBox(
+                                width: 250,
+                                height: 150,
+                                child: Scaffold(
+                                  bottomNavigationBar: BottomAppBar(
+                                    child: Row(
+                                      children: [
+                                        IconButton(onPressed: () {}, icon: Icon(Icons.menu)),
+                                        IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+                                        IconButton(onPressed: () {}, icon: Icon(Icons.favorite)),
+                                      ],
+                                    ),
+                                  ),
+                                  floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
+                                  floatingActionButton: FloatingActionButton(
+                                    onPressed: () {},
+                                    child: Icon(Icons.add),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            ShowcaseItem(
+                              heading: 'BottomNavigationBar',
+                              child: SizedBox(
+                                width: 270,
+                                height: 100,
+                                child: Scaffold(
+                                  bottomNavigationBar: BottomNavigationBar(
+                                    items: [
+                                      BottomNavigationBarItem(
+                                        icon: Icon(Icons.home),
+                                        label: 'Home'
+                                      ),
+                                      BottomNavigationBarItem(
+                                        icon: Icon(Icons.business),
+                                        label: 'Business'
+                                      ),
+                                      BottomNavigationBarItem(
+                                        icon: Icon(Icons.school),
+                                        label: 'School'
+                                      ),
+                                    ]
+                                  )
+                                )
+                              ),
+                            ),
+                            ShowcaseItem(
+                              heading: 'Drawer',
+                              child: SizedBox(
+                                width: 350,
+                                height: 300,
+                                child: Scaffold(
+                                  appBar: AppBar(),
+                                  drawer: Drawer(
+                                    child: ListView(
+                                      children: [
+                                        DrawerHeader(
+                                          child: Text('Header')
+                                        ),
+                                        ListTile(
+                                          leading: Icon(Icons.message),
+                                          title: Text('Messages'),
+                                          onTap: () {},
+                                        ),
+                                        ListTile(
+                                          leading: Icon(Icons.account_circle),
+                                          title: Text('Profile'),
+                                          onTap: () {},
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                )
+                              )
+                            ),
+                            ShowcaseItem(
+                              heading: 'NavigationBar',
+                              child: SizedBox(
+                                width: 250,
+                                height: 150,
+                                child: Scaffold(
+                                  bottomNavigationBar: NavigationBar(
+                                    destinations: [
+                                      NavigationDestination(
+                                        icon: Icon(Icons.home),
+                                        label: 'Home'
+                                      ),
+                                      NavigationDestination(
+                                        icon: Icon(Icons.business),
+                                        label: 'Business'
+                                      ),
+                                      NavigationDestination(
+                                        icon: Icon(Icons.school),
+                                        label: 'School',
+                                        enabled: false,
+                                      ),
+                                    ]
+                                  )
+                                )
+                              ),
+                            ),
+                            ShowcaseItem(
+                              heading: 'NavigationDrawer',
+                              child: SizedBox(
+                                width: 350,
+                                height: 250,
+                                child: Scaffold(
+                                  appBar: AppBar(),
+                                  endDrawer: NavigationDrawer(
+                                    header: Text('Header'),
+                                    footer: Text('Footer'),
+                                    children: [
+                                      NavigationDrawerDestination(
+                                        icon: Icon(Icons.home),
+                                        label: Text('Home')
+                                      ),
+                                      NavigationDrawerDestination(
+                                        icon: Icon(Icons.business),
+                                        label: Text('Business')
+                                      ),
+                                      NavigationDrawerDestination(
+                                        icon: Icon(Icons.school),
+                                        label: Text('School'),
+                                        enabled: false,
+                                      ),
+                                    ]
+                                  ),
+                                )
+                              ),
+                            ),
+                            ShowcaseItem(
+                              heading: 'NavigationRail',
+                              child: SizedBox(
+                                height: 250,
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    NavigationRail(
+                                      leading: Text('leading'),
+                                      trailing: Text('trailing'),
+                                      destinations: [
+                                        NavigationRailDestination(
+                                          icon: Icon(Icons.home),
+                                          label: Text('Home')
+                                        ),
+                                        NavigationRailDestination(
+                                          icon: Icon(Icons.business),
+                                          label: Text('Business')
+                                        ),
+                                        NavigationRailDestination(
+                                          icon: Icon(Icons.school),
+                                          label: Text('School'),
+                                          disabled: true,
+                                        ),
+                                      ],
+                                      selectedIndex: 0
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            ShowcaseItem(
+                              heading: 'SliverAppBar',
+                              child: SizedBox(
+                                width: 1000,
+                                height: 200,
+                                child: Row(
+                                  children: [
+                                    Expanded(
+                                      child: CustomScrollView(
+                                        slivers: [
+                                          SliverAppBar(
+                                            title: Text('Standard'),
+                                          ),
+                                          SliverFillRemaining(),
+                                          SliverFillRemaining(),
+                                          SliverFillRemaining(),
+                                        ],
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: CustomScrollView(
+                                        slivers: [
+                                          SliverAppBar.medium(
+                                            title: Text('Medium'),
+                                          ),
+                                          SliverFillRemaining(),
+                                          SliverFillRemaining(),
+                                          SliverFillRemaining(),
+                                        ],
+                                      ),
+                                    ),
+                                    Expanded(
+                                      child: CustomScrollView(
+                                        slivers: [
+                                          SliverAppBar.large(
+                                            title: Text('Large'),
+                                          ),
+                                          SliverFillRemaining(),
+                                          SliverFillRemaining(),
+                                          SliverFillRemaining(),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ),
+                            ShowcaseItem(
+                              heading: 'TabBar',
+                              child: SizedBox(
+                                width: 300,
+                                height: 200,
+                                child: DefaultTabController(
+                                  length: 3,
+                                  child: Scaffold(
+                                    appBar: AppBar(
+                                      title: Text('Primary and secondary'),
+                                      automaticallyImplyLeading: false,
+                                      bottom: TabBar(
+                                        tabs: [
+                                          Tab(
+                                            text: 'Home',
+                                            icon: Icon(Icons.home),
+                                          ),
+                                          Tab(
+                                            text: 'Work',
+                                            icon: Icon(Icons.business),
+                                          ),
+                                          Tab(
+                                            text: 'School',
+                                            icon: Icon(Icons.school),
+                                          ),
+                                        ]
+                                      )
+                                    ),
+                                    body: DefaultTabController(
+                                      length: 2,
+                                      child: DefaultTabController(
+                                        length: 2,
+                                        child: TabBar.secondary(
+                                          tabs: [
+                                            Tab(text: 'Overview'),
+                                            Tab(text: 'Details'),
+                                          ]
+                                        ),
+                                      ),
+                                    )
+                                  ),
+                                )
+                              ),
+                            ),
                           ],
                         ),
                         SizedBox(height: 32,),
