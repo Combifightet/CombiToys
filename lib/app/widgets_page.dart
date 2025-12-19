@@ -1124,23 +1124,10 @@ class _WidgetsPageState extends State<WidgetsPage> {
                                 mainAxisSize: MainAxisSize.min,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                              
-                                    ]
-                                  ),
-                                  SizedBox(width: 16),
-                                  Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      DatePickerDialog(
-                                        firstDate: DateTime.fromMillisecondsSinceEpoch(0), 
-                                        lastDate: DateTime.now(),
-                                        currentDate: DateTime.now(),
-                                      )
-                                    ]
+                                  DatePickerDialog(
+                                    firstDate: DateTime.fromMillisecondsSinceEpoch(0), 
+                                    lastDate: DateTime.now(),
+                                    currentDate: DateTime.now(),
                                   )
                                 ],
                               ),
@@ -1176,47 +1163,17 @@ class _WidgetsPageState extends State<WidgetsPage> {
                             ),
                             ShowcaseItem(
                               heading: 'Slider',
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      SizedBox(height: 14),
-                                      Text('Old (2023)'),
-                                      SizedBox(height: 28),
-                                      Text('New (2024)')
-                                    ]
-                                  ),
-                                  SizedBox(width: 16),
-                                  Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Slider(
-                                        year2023: true,
-                                        min: 0,
-                                        max: 100,
-                                        value: 33,
-                                        secondaryTrackValue: 67,
-                                        onChanged: (_) {},
-                                        divisions: 10,
-                                        label: '33',
-                                      ),
-                                      Slider(
-                                        year2023: false,
-                                        min: 0,
-                                        max: 100,
-                                        value: 33,
-                                        secondaryTrackValue: 67,
-                                        onChanged: (_) {},
-                                        divisions: 10,
-                                        label: '33',
-                                      ),
-                                    ]
-                                  )
-                                ],
+                              child: SizedBox(
+                                width: 250,
+                                child: Slider(
+                                  min: 0,
+                                  max: 100,
+                                  value: 33,
+                                  secondaryTrackValue: 67,
+                                  onChanged: (_) {},
+                                  divisions: 10,
+                                  label: '33',
+                                ),
                               ),
                             ),
                             ShowcaseItem(
@@ -1229,14 +1186,28 @@ class _WidgetsPageState extends State<WidgetsPage> {
                                     mainAxisSize: MainAxisSize.min,
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                              
+                                      Switch(
+                                        value: true,
+                                        onChanged: (_) {}
+                                      ),
+                                      Switch(
+                                        value: false,
+                                        onChanged: (_) {}
+                                      )
                                     ]
                                   ),
                                   SizedBox(width: 16),
                                   Column(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
-                              
+                                      Switch(
+                                        value: true,
+                                        onChanged: null
+                                      ),
+                                      Switch(
+                                        value: false,
+                                        onChanged: null
+                                      )
                                     ]
                                   )
                                 ],
@@ -1246,24 +1217,12 @@ class _WidgetsPageState extends State<WidgetsPage> {
                               heading: 'TimePicker',
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                              
-                                    ]
+                                  TimePickerDialog(
+                                    initialTime: TimeOfDay.now()
                                   ),
-                                  SizedBox(width: 16),
-                                  Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-
-                                    ]
-                                  )
                                 ],
-                              ),
+                              )
                             ),
                           ],
                         ),
