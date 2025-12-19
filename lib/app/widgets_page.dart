@@ -1238,29 +1238,119 @@ class _WidgetsPageState extends State<WidgetsPage> {
                           runSpacing: 16,
                           children: [
                             ShowcaseItem(
-                              heading: 'Title',
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                              
-                                    ]
-                                  ),
-                                  SizedBox(width: 16),
-                                  Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                              
-                                    ]
-                                  )
-                                ],
-                              ),
+                              heading: 'Label',
+                              child: RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: 'Small',
+                                      style: Theme.of(context).textTheme.labelSmall
+                                    ),
+                                    TextSpan(
+                                      text: '\nMedium',
+                                      style: Theme.of(context).textTheme.labelMedium
+                                    ),
+                                    TextSpan(
+                                      text: '\nLarge',
+                                      style: Theme.of(context).textTheme.labelLarge
+                                    ),
+                                  ]
+                                ),
+                              )
                             ),
-                            // - Text
+                            ShowcaseItem(
+                              heading: 'Body',
+                              child: RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: 'Small',
+                                      style: Theme.of(context).textTheme.bodySmall
+                                    ),
+                                    TextSpan(
+                                      text: '\nMedium',
+                                      style: Theme.of(context).textTheme.bodyMedium
+                                    ),
+                                    TextSpan(
+                                      text: '\nLarge',
+                                      style: Theme.of(context).textTheme.bodyLarge
+                                    ),
+                                  ]
+                                ),
+                              )
+                            ),
+                            ShowcaseItem(
+                              heading: 'Title',
+                              child: RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: 'Small',
+                                      style: Theme.of(context).textTheme.titleSmall
+                                    ),
+                                    TextSpan(
+                                      text: '\nMedium',
+                                      style: Theme.of(context).textTheme.titleMedium
+                                    ),
+                                    TextSpan(
+                                      text: '\nLarge',
+                                      style: Theme.of(context).textTheme.titleLarge
+                                    ),
+                                  ]
+                                ),
+                              )
+                            ),
+                            ShowcaseItem(
+                              heading: 'Headline',
+                              child: RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: 'Small',
+                                      style: Theme.of(context).textTheme.headlineSmall
+                                    ),
+                                    TextSpan(
+                                      text: '\nMedium',
+                                      style: Theme.of(context).textTheme.headlineMedium
+                                    ),
+                                    TextSpan(
+                                      text: '\nLarge',
+                                      style: Theme.of(context).textTheme.headlineLarge
+                                    ),
+                                  ]
+                                ),
+                              )
+                            ),
+                            ShowcaseItem(
+                              heading: 'Display',
+                              child: RichText(
+                                text: TextSpan(
+                                  children: [
+                                    TextSpan(
+                                      text: 'Small',
+                                      style: Theme.of(context).textTheme.displaySmall
+                                    ),
+                                    TextSpan(
+                                      text: '\nMedium',
+                                      style: Theme.of(context).textTheme.displayMedium
+                                    ),
+                                    TextSpan(
+                                      text: '\nLarge',
+                                      style: Theme.of(context).textTheme.displayLarge
+                                    ),
+                                  ]
+                                ),
+                              )
+                            ),
+                            ShowcaseItem(
+                              heading: 'TextField',
+                              child: SizedBox(
+                                width: 250,
+                                child: TextField(
+
+                                )
+                              ),
+                            )
                             // - TextField
                           ],
                         ),
