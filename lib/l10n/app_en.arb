@@ -1,8 +1,31 @@
 {
+	"@@locale": "en",
 	"homePage": "Home Page",
+	"@homePage": {
+		"description": "the home page title"
+	},
 	"language": "Language:",
+	"@language": {
+		"description": "Language selection hint"
+	},
 	"appearance": "Appearance:",
+	"@appearance": {
+		"description": "Apperance selection hint"
+	},
 	"themeAutomatic": "Automatic",
+	"@themeAutomatic": {
+		"description": "Automatic theme apperance"
+	},
 	"themeDark": "Dark",
+	"@themeDark": {
+		"description": "Dark theme apperance"
+	},
 	"themeLight": "Light",
-	"widgetsPage": "Material Widgets Page"}
+	"@themeLight": {
+		"description": "Light theme apperance"
+	},
+	"widgetsPage": "Material Widgets Page",
+	"@widgetsPage": {
+		"description": "the widgets page title"
+	}
+}
