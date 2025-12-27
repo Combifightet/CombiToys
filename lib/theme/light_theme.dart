@@ -5,6 +5,13 @@ import 'package:combi_toys/theme/theme.dart';
 
 
 ThemeData getLightTheme({String accentColor='purple'}) {
+  List<bool> useLightTextOnAccent = [
+    4.5 <= getContrastRatio(lightColor, accentColors[accentColor]![0]),
+    4.5 <= getContrastRatio(lightColor, accentColors[accentColor]![1]),
+    4.5 <= getContrastRatio(lightColor, accentColors[accentColor]![2]),
+    4.5 <= getContrastRatio(lightColor, accentColors[accentColor]![3]),
+  ];
+
   return ThemeData(
     brightness: Brightness.light,
     useMaterial3: true,
@@ -13,8 +20,8 @@ ThemeData getLightTheme({String accentColor='purple'}) {
     canvasColor: lightAccentColor,
 
     appBarTheme: AppBarTheme(
-      foregroundColor: lightColor,
-      backgroundColor: accentColors[accentColor]![2],
+      foregroundColor: useLightTextOnAccent[1]?lightColor:darkColor,
+      backgroundColor: accentColors[accentColor]![1],
     ),
     textTheme: TextTheme(
       titleMedium: TextStyle(

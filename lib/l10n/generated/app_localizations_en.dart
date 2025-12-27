@@ -28,7 +28,7 @@ class AppLocalizationsEn extends AppLocalizations {
         'green': 'Green',
         'blue': 'Blue',
         'purple': 'Purple',
-        'other': '$name!',
+        'other': '$name',
       },
     );
     return '$_temp0';

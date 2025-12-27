@@ -5,6 +5,13 @@ import 'package:combi_toys/theme/theme.dart';
 // https://www.coolors.co/2c2b2a-323130-efeeed-fcfbfa
 
 ThemeData getDarkTheme({String accentColor='purple'}) {
+  List<bool> useDarkTextOnAccent = [
+    4.5 <= getContrastRatio(darkColor, accentColors[accentColor]![0]),
+    4.5 <= getContrastRatio(darkColor, accentColors[accentColor]![1]),
+    4.5 <= getContrastRatio(darkColor, accentColors[accentColor]![2]),
+    4.5 <= getContrastRatio(darkColor, accentColors[accentColor]![3]),
+  ];
+
   return ThemeData(
     brightness: Brightness.dark,
     useMaterial3: true,
@@ -13,7 +20,7 @@ ThemeData getDarkTheme({String accentColor='purple'}) {
     canvasColor: darkAccentColor,
 
     appBarTheme: AppBarTheme(
-      foregroundColor: darkColor,
+      foregroundColor: useDarkTextOnAccent[2]?darkColor:lightColor,
       backgroundColor: accentColors[accentColor]![2],
     ),
     textTheme: TextTheme(

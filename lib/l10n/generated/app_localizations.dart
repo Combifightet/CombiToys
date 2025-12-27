@@ -119,7 +119,7 @@ abstract class AppLocalizations {
   /// the translated color's name
   ///
   /// In en, this message translates to:
-  /// **'{name, select, red{Red} orange{Orange} yellow{Yellow} green{Green} blue{Blue} purple{Purple} other{{name}!}}'**
+  /// **'{name, select, red{Red} orange{Orange} yellow{Yellow} green{Green} blue{Blue} purple{Purple} other{{name}}}'**
   String color(String name);
 
   /// Automatic theme apperance
