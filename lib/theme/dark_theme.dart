@@ -6,10 +6,10 @@ import 'package:combi_toys/theme/theme.dart';
 
 ThemeData getDarkTheme({String accentColor='purple'}) {
   List<bool> useDarkTextOnAccent = [
-    4.5 <= getContrastRatio(darkColor, accentColors[accentColor]![0]),
-    4.5 <= getContrastRatio(darkColor, accentColors[accentColor]![1]),
-    4.5 <= getContrastRatio(darkColor, accentColors[accentColor]![2]),
-    4.5 <= getContrastRatio(darkColor, accentColors[accentColor]![3]),
+    getContrastRatio(lightColor, accentColors[accentColor]![0]) <= getContrastRatio(darkColor, accentColors[accentColor]![0]),
+    getContrastRatio(lightColor, accentColors[accentColor]![1]) <= getContrastRatio(darkColor, accentColors[accentColor]![1]),
+    getContrastRatio(lightColor, accentColors[accentColor]![2]) <= getContrastRatio(darkColor, accentColors[accentColor]![2]),
+    getContrastRatio(lightColor, accentColors[accentColor]![3]) <= getContrastRatio(darkColor, accentColors[accentColor]![3]),
   ];
 
   return ThemeData(
