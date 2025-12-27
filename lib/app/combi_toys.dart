@@ -1,11 +1,11 @@
-
-import 'package:combi_toys/theme/dark_theme.dart';
-import 'package:combi_toys/theme/light_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:combi_toys/l10n/generated/app_localizations.dart';
 import 'package:combi_toys/app/home_page.dart';
+import 'package:combi_toys/global.dart';
+import 'package:combi_toys/l10n/generated/app_localizations.dart';
+import 'package:combi_toys/theme/dark_theme.dart';
+import 'package:combi_toys/theme/light_theme.dart';
 
 class CombiToys extends StatelessWidget {
   const CombiToys({super.key});
@@ -41,28 +41,11 @@ class CombiToys extends StatelessWidget {
             return supportedLocales.first;
           },
           themeMode: globalSettingsModel.theme,
-          theme: lightTheme,
-          darkTheme: darkTheme,
+          theme: getLightTheme(accentColor: globalSettingsModel.accentColor),
+          darkTheme: getDarkTheme(accentColor: globalSettingsModel.accentColor),
           home: HomePage(),
         )
       ),
     );
-  }
-}
-
-class GlobalSettingsModel extends ChangeNotifier {
-  Locale? _locale;
-  ThemeMode _theme = ThemeMode.system;
-
-  Locale? get locale => _locale;
-  void setLocale(Locale? locale) {
-    _locale = locale;
-    notifyListeners();
-  }
-
-  ThemeMode get theme => _theme;
-  void setTheme(ThemeMode theme) {
-    _theme = theme;
-    notifyListeners();
   }
 }

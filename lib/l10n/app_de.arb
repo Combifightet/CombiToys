@@ -1,8 +1,11 @@
 {
 	"@@locale": "de",
+	"@@author": "@combifightet",
+
 	"homePage": "Startseite",
 	"language": "Sprache:",
 	"appearance": "Erscheinungsbild:",
+	"color": "{name, select, red{Rot} orange{Orange} yellow{Gelb} green{Grün} blue{Blau} purple{Lila} other{{name}}}",
 	"themeAutomatic": "Automatisch",
 	"themeDark": "Dunkel",
 	"themeLight": "Hell",

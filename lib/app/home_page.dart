@@ -1,10 +1,10 @@
-
-import 'package:combi_toys/app/combi_toys.dart';
-import 'package:combi_toys/app/widgets_page.dart';
 import 'package:flutter/material.dart';
-
-import 'package:combi_toys/l10n/generated/app_localizations.dart';
 import 'package:provider/provider.dart';
+
+import 'package:combi_toys/app/widgets_page.dart';
+import 'package:combi_toys/global.dart';
+import 'package:combi_toys/l10n/generated/app_localizations.dart';
+import 'package:combi_toys/theme/theme.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -16,6 +16,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   Locale? _selectedLocale;
   late ThemeMode _selectedTheme;
+  late String _selectedAccentColor;
 
   @override
   void initState() {
@@ -23,6 +24,7 @@ class _HomePageState extends State<HomePage> {
 
     _selectedLocale = Provider.of<GlobalSettingsModel>(context, listen: false).locale;
     _selectedTheme = Provider.of<GlobalSettingsModel>(context, listen: false).theme;
+    _selectedAccentColor = Provider.of<GlobalSettingsModel>(context, listen: false).accentColor;
   }
 
   @override
@@ -41,7 +43,6 @@ class _HomePageState extends State<HomePage> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  
                   AppLocalizations.of(context)!.appearance,
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
@@ -71,6 +72,52 @@ class _HomePageState extends State<HomePage> {
                     }
                   }
                 ),
+              ],
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  AppLocalizations.of(context)!.appearance,
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+                SizedBox(
+                  width: 16,
+                ),
+                SegmentedButton(
+                  style: ButtonStyle(
+                    backgroundColor: WidgetStateProperty.fromMap(<WidgetStatesConstraint, Color?>{
+                      WidgetState.selected: Theme.of(context).brightness==Brightness.light
+                          ? accentColors[_selectedAccentColor]![1]
+                          : accentColors[_selectedAccentColor]![2],
+                    }),
+                  ),
+                  segments: List<ButtonSegment<String>>.generate(accentColors.length, (int index) {
+                    String colorName = accentColors.keys.elementAt(index); 
+                    return ButtonSegment(
+                      value: colorName,
+                      icon: Icon(
+                        Icons.color_lens_rounded,
+                        color: Theme.of(context).brightness==Brightness.light
+                          ? accentColors[colorName]![1]
+                          : accentColors[colorName]![2],
+                      ),
+                      label: Text(AppLocalizations.of(context)!.color(colorName))
+                    );
+                  }),
+                  selected: {_selectedAccentColor},
+                  onSelectionChanged: (Set<String> selection) {
+                    if (selection.isNotEmpty) {
+                      setState(() {
+                        _selectedAccentColor = selection.first;
+                        Provider.of<GlobalSettingsModel>(context, listen: false).setAccentColor(selection.first);
+                      });
+                    }
+                  },
+                )
               ],
             ),
             SizedBox(

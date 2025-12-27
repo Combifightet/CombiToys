@@ -1,5 +1,7 @@
 {
 	"@@locale": "en",
+	"@@author": "@combifightet",
+
 	"homePage": "Home Page",
 	"@homePage": {
 		"description": "the home page title"
@@ -11,6 +13,16 @@
 	"appearance": "Appearance:",
 	"@appearance": {
 		"description": "Apperance selection hint"
+	},
+	"color": "{name, select, red{Red} orange{Orange} yellow{Yellow} green{Green} blue{Blue} purple{Purple} other{{name}}}",
+	"@color": {
+		"description": "the translated color's name",
+		"placeholders": {
+			"name": {
+			  "type":"String",
+			  "example":"red" 
+			}
+		}
 	},
 	"themeAutomatic": "Automatic",
 	"@themeAutomatic": {

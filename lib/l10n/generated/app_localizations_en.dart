@@ -18,6 +18,23 @@ class AppLocalizationsEn extends AppLocalizations {
   String get appearance => 'Appearance:';
 
   @override
+  String color(String name) {
+    String _temp0 = intl.Intl.selectLogic(
+      name,
+      {
+        'red': 'Red',
+        'orange': 'Orange',
+        'yellow': 'Yellow',
+        'green': 'Green',
+        'blue': 'Blue',
+        'purple': 'Purple',
+        'other': '$name!',
+      },
+    );
+    return '$_temp0';
+  }
+
+  @override
   String get themeAutomatic => 'Automatic';
 
   @override

@@ -98,43 +98,49 @@ abstract class AppLocalizations {
     Locale('en')
   ];
 
-  /// No description provided for @homePage.
+  /// the home page title
   ///
   /// In en, this message translates to:
   /// **'Home Page'**
   String get homePage;
 
-  /// No description provided for @language.
+  /// Language selection hint
   ///
   /// In en, this message translates to:
   /// **'Language:'**
   String get language;
 
-  /// No description provided for @appearance.
+  /// Apperance selection hint
   ///
   /// In en, this message translates to:
   /// **'Appearance:'**
   String get appearance;
 
-  /// No description provided for @themeAutomatic.
+  /// the translated color's name
+  ///
+  /// In en, this message translates to:
+  /// **'{name, select, red{Red} orange{Orange} yellow{Yellow} green{Green} blue{Blue} purple{Purple} other{{name}!}}'**
+  String color(String name);
+
+  /// Automatic theme apperance
   ///
   /// In en, this message translates to:
   /// **'Automatic'**
   String get themeAutomatic;
 
-  /// No description provided for @themeDark.
+  /// Dark theme apperance
   ///
   /// In en, this message translates to:
   /// **'Dark'**
   String get themeDark;
 
-  /// No description provided for @themeLight.
+  /// Light theme apperance
   ///
   /// In en, this message translates to:
   /// **'Light'**
   String get themeLight;
 
-  /// No description provided for @widgetsPage.
+  /// the widgets page title
   ///
   /// In en, this message translates to:
   /// **'Material Widgets Page'**
