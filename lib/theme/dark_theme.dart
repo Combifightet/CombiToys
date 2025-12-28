@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:combi_toys/theme/theme.dart';
+import 'package:flutter/services.dart';
 
 // https://www.coolors.co/2c2b2a-323130-efeeed-fcfbfa
 
@@ -13,21 +14,135 @@ ThemeData getDarkTheme({String accentColor='purple'}) {
   ];
 
   return ThemeData(
-    brightness: Brightness.dark,
+  //   brightness: Brightness.dark,
+  //   useMaterial3: true,
+
+  //   scaffoldBackgroundColor: darkColor,
+  //   canvasColor: darkAccentColor,
+
+  //   appBarTheme: AppBarTheme(
+  //     foregroundColor: useDarkTextOnAccent[2]?darkColor:lightColor,
+  //     backgroundColor: accentColors[accentColor]![2],
+  //   ),
+  //   textTheme: TextTheme(
+  //     titleMedium: TextStyle(
+  //       fontSize: 16,
+  //       color: lightColor,
+  //     ),
+  //   ),
+
+
+
+    // adaptations: ,
+    // applyElevationOverlayColor: ,
+    // cupertinoOverrideTheme: ,
+    // extensions: ,
+    // inputDecorationTheme: ,
+    // materialTapTargetSize: ,
+    // pageTransitionsTheme: ,
+    // platform: ,
+    scrollbarTheme: ScrollbarThemeData(),
+    // splashFactory: ,
     useMaterial3: true,
-
+    // useSystemColors: ,
+    // visualDensity: ,
+    // colorScheme: ,
+    brightness: Brightness.dark,
+    // colorSchemeSeed: ,
+    // canvasColor: ,
+    // cardColor: ,
+    // disabledColor: ,
+    // dividerColor: ,
+    // focusColor: ,
+    // highlightColor: ,
+    // hintColor: ,
+    // hoverColor: ,
+    // primaryColor: ,
+    // primaryColorDark: ,
+    // primaryColorLight: ,
+    // primarySwatch: ,
     scaffoldBackgroundColor: darkColor,
-    canvasColor: darkAccentColor,
-
-    appBarTheme: AppBarTheme(
+    // secondaryHeaderColor: ,
+    // shadowColor: ,
+    // splashColor: ,
+    // unselectedWidgetColor: ,
+    // fontFamily: ,
+    // fontFamilyFallback: ,
+    // package: ,
+    // iconTheme: ,
+    // primaryIconTheme: ,
+    // primaryTextTheme: ,
+    // textTheme: ,
+    // typography: ,
+    // actionIconTheme: ,
+    appBarTheme: AppBarThemeData(
       foregroundColor: useDarkTextOnAccent[2]?darkColor:lightColor,
       backgroundColor: accentColors[accentColor]![2],
-    ),
-    textTheme: TextTheme(
-      titleMedium: TextStyle(
-        fontSize: 16,
-        color: lightColor,
+
+      elevation: 10,
+      scrolledUnderElevation: 10,
+      shadowColor: darkAccentColor,
+      surfaceTintColor: Colors.transparent,
+      shape: AppBarShape(1),
+      // toolbarHeight: ,
+      systemOverlayStyle: SystemUiOverlayStyle(
+        systemNavigationBarColor: accentColors[accentColor]![2],
+        systemNavigationBarDividerColor: useDarkTextOnAccent[2]?darkColor:lightColor,
+        systemNavigationBarIconBrightness: useDarkTextOnAccent[2]?Brightness.dark:Brightness.light,
+        systemNavigationBarContrastEnforced: false,
+        statusBarColor: accentColors[accentColor]![2],
+        statusBarBrightness: Brightness.dark,
+        statusBarIconBrightness: useDarkTextOnAccent[2]?Brightness.dark:Brightness.light,
+        systemStatusBarContrastEnforced: false,
       ),
     ),
+    // badgeTheme: ,
+    // bannerTheme: ,
+    // bottomAppBarTheme: ,
+    // bottomNavigationBarTheme: ,
+    // bottomSheetTheme: ,
+    // buttonTheme: ,
+    // cardTheme: ,
+    // carouselViewTheme: ,
+    // checkboxTheme: ,
+    // chipTheme: ,
+    // dataTableTheme: ,
+    // datePickerTheme: ,
+    // dialogTheme: ,
+    // dividerTheme: ,
+    // drawerTheme: ,
+    // dropdownMenuTheme: ,
+    // elevatedButtonTheme: ,
+    // expansionTileTheme: ,
+    // filledButtonTheme: ,
+    // floatingActionButtonTheme: ,
+    // iconButtonTheme: ,
+    // listTileTheme: ,
+    // menuBarTheme: ,
+    // menuButtonTheme: ,
+    // menuTheme: ,
+    // navigationBarTheme: ,
+    // navigationDrawerTheme: ,
+    // navigationRailTheme: ,
+    // outlinedButtonTheme: ,
+    // popupMenuTheme: ,
+    // progressIndicatorTheme: ,
+    // radioTheme: ,
+    // searchBarTheme: ,
+    // searchViewTheme: ,
+    // segmentedButtonTheme: ,
+    // sliderTheme: ,
+    // snackBarTheme: ,
+    // switchTheme: ,
+    // tabBarTheme: ,
+    // textButtonTheme: ,
+    // textSelectionTheme: ,
+    // timePickerTheme: ,
+    // toggleButtonsTheme: ,
+    // tooltipTheme: ,
+
+    // buttonBarTheme: ,
+    // dialogBackgroundColor: ,
+    // indicatorColor: ,
   );
 }

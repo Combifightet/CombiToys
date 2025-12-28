@@ -84,3 +84,108 @@ double getContrastRatio(Color color1, Color color2) {
 
   return (luminance1+0.05) / (luminance2+0.05);
 }
+
+
+
+class AppBarShape extends ShapeBorder {
+  late final double _strength;
+  late final double _randomness;
+  late final int? _seed;
+
+  AppBarShape(int? seed, {double strength = 10, double randomness = 0.333}) {
+    _seed = seed;
+    _strength = strength;
+    _randomness = randomness;
+  }
+
+  @override
+  EdgeInsetsGeometry get dimensions => const EdgeInsets.only();
+
+  @override
+  Path getInnerPath(Rect rect, {TextDirection? textDirection}) {
+    return getOuterPath(rect, textDirection: textDirection);
+  }
+
+  @override
+  Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
+    print('_seed: $_seed');
+    final Random random = Random(_seed);
+    final path = Path();
+    path.lineTo(0, rect.height+0.5*_strength);
+
+
+    List<double> segments = [0];
+
+    // always place atleast 3 segments depending on randomness
+    for (int i=0; i<max(3, (rect.width/(2.5*rect.height)).round()); i++) {
+      segments.add(segments.last + getRandomDouble(random, randomness: _randomness));
+    }
+    
+    Offset prevPointPos = Offset(
+      segments[1]/segments.last*rect.width,
+      rect.height+0.5*_strength + _strength*(random.nextDouble()-0.5)
+    );
+
+    Offset prevControlPos = Offset(
+      ((segments[0]+segments[1])/2 + (segments[1]-(segments[0]))*(random.nextDouble()-0.5)*_randomness)/segments.last*rect.width,
+      rect.height+0.5*_strength + _strength*(2*random.nextDouble()-1)
+    );
+    
+    path.quadraticBezierTo(
+      prevControlPos.dx,                                                        // x1
+      prevControlPos.dy,                                                        // y1
+      prevPointPos.dx,                                                          // x2
+      prevPointPos.dy                                                           // y2
+    );
+
+    for (int i=2; i<segments.length; i++) {
+      double nextXPos = ((segments[i-1]+segments[i])/2 + (segments[i]-(segments[i-1]))*(random.nextDouble()-0.5)*_randomness)/segments.last*rect.width;
+      double incline = (prevPointPos.dy-prevControlPos.dy)/(prevPointPos.dx-prevControlPos.dx);
+
+      prevControlPos = Offset(
+        nextXPos,
+        incline*nextXPos + (prevControlPos.dy - prevControlPos.dx*incline)
+      );
+
+      prevPointPos = Offset(
+        segments[i]/segments.last*rect.width,
+        rect.height+0.5*_strength + _strength*(random.nextDouble()-0.5)
+      );
+
+      if (i == segments.length-1) {
+        prevPointPos = Offset(prevPointPos.dx, rect.height+0.5*_strength);
+      }
+
+      path.quadraticBezierTo(
+        prevControlPos.dx,                                                      // x1
+        prevControlPos.dy,                                                      // y1
+        prevPointPos.dx,                                                        // x2
+        prevPointPos.dy                                                         // y2
+      );
+
+
+      // path.quadraticBezierTo(
+      //   ((segments[i-1]+segments[i])/2)/segments.last*rect.width,
+      //   // rect.height+0.5*_strength + _strength*(2*Random().nextDouble()-1),      // y1
+      //   rect.height/2,
+      //   segments[i]/segments.last*rect.width,                                     // x2
+      //   rect.height+0.5*_strength + _strength*(_random.nextDouble()-0.5)       // y2
+      // );
+    }
+
+    path.lineTo(rect.width, 0);
+    path.close();
+    return path;
+  }
+
+  @override
+  void paint(Canvas canvas, Rect rect, {TextDirection? textDirection}) {}
+
+  @override
+  ShapeBorder scale(double t) => this;
+}
+
+
+double getRandomDouble(Random random, {double randomness=1}) {
+  return random.nextDouble()*randomness + 1-randomness;
+}
