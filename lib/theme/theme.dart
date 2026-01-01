@@ -108,7 +108,6 @@ class AppBarShape extends ShapeBorder {
 
   @override
   Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
-    print('_seed: $_seed');
     final Random random = Random(_seed);
     final path = Path();
     path.lineTo(0, rect.height+0.5*_strength);
@@ -120,58 +119,96 @@ class AppBarShape extends ShapeBorder {
     for (int i=0; i<max(3, (rect.width/(2.5*rect.height)).round()); i++) {
       segments.add(segments.last + getRandomDouble(random, randomness: _randomness));
     }
-    
-    Offset prevPointPos = Offset(
-      segments[1]/segments.last*rect.width,
-      rect.height+0.5*_strength + _strength*(random.nextDouble()-0.5)
+
+    Offset prevPoint = Offset(
+      0,
+      rect.height+0.5*_strength
     );
 
-    Offset prevControlPos = Offset(
-      ((segments[0]+segments[1])/2 + (segments[1]-(segments[0]))*(random.nextDouble()-0.5)*_randomness)/segments.last*rect.width,
-      rect.height+0.5*_strength + _strength*(2*random.nextDouble()-1)
-    );
-    
-    path.quadraticBezierTo(
-      prevControlPos.dx,                                                        // x1
-      prevControlPos.dy,                                                        // y1
-      prevPointPos.dx,                                                          // x2
-      prevPointPos.dy                                                           // y2
-    );
-
-    for (int i=2; i<segments.length; i++) {
-      double nextXPos = ((segments[i-1]+segments[i])/2 + (segments[i]-(segments[i-1]))*(random.nextDouble()-0.5)*_randomness)/segments.last*rect.width;
-      double incline = (prevPointPos.dy-prevControlPos.dy)/(prevPointPos.dx-prevControlPos.dx);
-
-      prevControlPos = Offset(
-        nextXPos,
-        incline*nextXPos + (prevControlPos.dy - prevControlPos.dx*incline)
-      );
-
-      prevPointPos = Offset(
+    for (int i=1; i<segments.length; i++) {
+      Offset nextPoint = Offset(
         segments[i]/segments.last*rect.width,
         rect.height+0.5*_strength + _strength*(random.nextDouble()-0.5)
       );
-
-      if (i == segments.length-1) {
-        prevPointPos = Offset(prevPointPos.dx, rect.height+0.5*_strength);
+      if (i==segments.length-1) { // last point is fixed
+        nextPoint = Offset(
+          rect.width,
+          rect.height+0.5*_strength
+        );
       }
 
-      path.quadraticBezierTo(
-        prevControlPos.dx,                                                      // x1
-        prevControlPos.dy,                                                      // y1
-        prevPointPos.dx,                                                        // x2
-        prevPointPos.dy                                                         // y2
+      Offset controlPoint1 = Offset(
+        prevPoint.dx + ((random.nextDouble()*2-1)*_randomness*0.3 + 0.3) * (nextPoint.dx-prevPoint.dx),
+        prevPoint.dy
+      );
+      Offset controlPoint2 = Offset(
+        nextPoint.dx - ((random.nextDouble()*2-1)*_randomness*0.3 + 0.3) * (nextPoint.dx-prevPoint.dx),
+        nextPoint.dy
+      );
+      if (i==segments.length-1) { // last point is fixed
+        controlPoint2 = Offset(
+          controlPoint2.dx,
+          nextPoint.dy
+        );
+      }
+
+      Offset centerPoint = controlPoint1 + (controlPoint2-controlPoint1) * ((random.nextDouble()-1)*_randomness + 0.5);
+
+      path.quadraticBezierTo( // first half
+        controlPoint1.dx, controlPoint1.dy, // end point
+        centerPoint.dx, centerPoint.dy      // control point
+      );
+      path.quadraticBezierTo( // second half
+        controlPoint2.dx, controlPoint2.dy, // end point
+        nextPoint.dx, nextPoint.dy          // control point
       );
 
-
-      // path.quadraticBezierTo(
-      //   ((segments[i-1]+segments[i])/2)/segments.last*rect.width,
-      //   // rect.height+0.5*_strength + _strength*(2*Random().nextDouble()-1),      // y1
-      //   rect.height/2,
-      //   segments[i]/segments.last*rect.width,                                     // x2
-      //   rect.height+0.5*_strength + _strength*(_random.nextDouble()-0.5)       // y2
-      // );
+      prevPoint = nextPoint;
     }
+
+    
+    // Offset prevPointPos = Offset(
+    //   segments[1]/segments.last*rect.width,
+    //   rect.height+0.5*_strength + _strength*(random.nextDouble()-0.5)
+    // );
+
+    // Offset prevControlPos = Offset(
+    //   ((segments[0]+segments[1])/2 + (segments[1]-(segments[0]))*(random.nextDouble()-0.5)*_randomness)/segments.last*rect.width,
+    //   rect.height+0.5*_strength + _strength*(2*random.nextDouble()-1)
+    // );
+    
+    // path.quadraticBezierTo(
+    //   prevControlPos.dx,                                                        // x1
+    //   prevControlPos.dy,                                                        // y1
+    //   prevPointPos.dx,                                                          // x2
+    //   prevPointPos.dy                                                           // y2
+    // );
+
+    // for (int i=2; i<segments.length; i++) {
+    //   double nextXPos = ((segments[i-1]+segments[i])/2 + (segments[i]-(segments[i-1]))*(random.nextDouble()-0.5)*_randomness)/segments.last*rect.width;
+    //   double incline = (prevPointPos.dy-prevControlPos.dy)/(prevPointPos.dx-prevControlPos.dx);
+
+    //   prevControlPos = Offset(
+    //     nextXPos,
+    //     incline*nextXPos + (prevControlPos.dy - prevControlPos.dx*incline)
+    //   );
+
+    //   prevPointPos = Offset(
+    //     segments[i]/segments.last*rect.width,
+    //     rect.height+0.5*_strength + _strength*(random.nextDouble()-0.5)
+    //   );
+
+    //   if (i == segments.length-1) {
+    //     prevPointPos = Offset(prevPointPos.dx, rect.height+0.5*_strength);
+    //   }
+
+    //   path.quadraticBezierTo(
+    //     prevControlPos.dx,                                                      // x1
+    //     prevControlPos.dy,                                                      // y1
+    //     prevPointPos.dx,                                                        // x2
+    //     prevPointPos.dy                                                         // y2
+    //   );
+    // }
 
     path.lineTo(rect.width, 0);
     path.close();
