@@ -9,5 +9,6 @@
 	"themeAutomatic": "Automatisch",
 	"themeDark": "Dunkel",
 	"themeLight": "Hell",
-	"widgetsPage": "Material Widgets Seite"
+	"widgetsPage": "Material Widgets Seite",
+	"appBarPage": "Anpassbare AppBar Seite"
 }

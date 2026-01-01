@@ -39,5 +39,9 @@
 	"widgetsPage": "Material Widgets Page",
 	"@widgetsPage": {
 		"description": "the widgets page title"
+	},
+	"appBarPage": "Custom AppBar Page",
+	"@appBarPage": {
+		"description": "the app bar test page title"
 	}
 }

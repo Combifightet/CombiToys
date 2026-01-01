@@ -151,8 +151,19 @@ class AppBarShape extends ShapeBorder {
           nextPoint.dy
         );
       }
+      
+      if (controlPoint1.dx>controlPoint2.dx) {  // ensure the path never travels backwards
+        controlPoint1 = Offset(
+          (controlPoint1.dx+controlPoint2.dx)/2,
+          controlPoint1.dy
+        );
+        controlPoint2 = Offset(
+          controlPoint1.dx,
+          controlPoint1.dy
+        );
+      }
 
-      Offset centerPoint = controlPoint1 + (controlPoint2-controlPoint1) * ((random.nextDouble()-1)*_randomness + 0.5);
+      Offset centerPoint = controlPoint1 + (controlPoint2-controlPoint1) * ((random.nextDouble()-0.5)*_randomness + 0.5);
 
       path.quadraticBezierTo( // first half
         controlPoint1.dx, controlPoint1.dy, // end point

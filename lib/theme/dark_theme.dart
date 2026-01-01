@@ -83,11 +83,7 @@ ThemeData getDarkTheme({String accentColor='purple'}) {
       scrolledUnderElevation: 10,
       shadowColor: darkAccentColor,
       surfaceTintColor: Colors.transparent,
-      shape: AppBarShape(
-        null,
-        randomness: 0,
-        strength: 40
-      ),
+      shape: AppBarShape(17122003),
       // toolbarHeight: ,
       systemOverlayStyle: SystemUiOverlayStyle(
         systemNavigationBarColor: accentColors[accentColor]![2],

@@ -17,9 +17,6 @@ class _WidgetsPageState extends State<WidgetsPage> {
         title: Text(
           AppLocalizations.of(context)!.widgetsPage,
         ),
-        actions: [
-          BackButton()
-        ],
       ),
       body: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {

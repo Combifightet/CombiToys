@@ -45,4 +45,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get widgetsPage => 'Material Widgets Seite';
+
+  @override
+  String get appBarPage => 'Anpassbare AppBar Seite';
 }

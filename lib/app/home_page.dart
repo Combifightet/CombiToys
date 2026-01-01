@@ -1,3 +1,4 @@
+import 'package:combi_toys/app/app_bar_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -175,6 +176,19 @@ class _HomePageState extends State<HomePage> {
               ),
               child: Text(
                 AppLocalizations.of(context)!.widgetsPage
+              )
+            ),
+            SizedBox(
+              height: 8,
+            ),
+            ElevatedButton(
+              onPressed: () => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (BuildContext context) => AppBarPage()
+                )
+              ),
+              child: Text(
+                AppLocalizations.of(context)!.appBarPage
               )
             )
           ],

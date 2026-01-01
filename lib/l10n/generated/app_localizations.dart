@@ -145,6 +145,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Material Widgets Page'**
   String get widgetsPage;
+
+  /// the app bar test page title
+  ///
+  /// In en, this message translates to:
+  /// **'Custom AppBar Page'**
+  String get appBarPage;
 }
 
 class _AppLocalizationsDelegate
