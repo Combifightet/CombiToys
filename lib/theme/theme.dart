@@ -1,7 +1,7 @@
-import 'dart:math';
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'dart:math';
+
+// TODO: beter unify lightness of the colors
 
 Map<String, List<Color>> accentColors = {
   'red': [ // https://coolors.co/b3343e-c74549-e35c59-eb6e63
@@ -42,10 +42,11 @@ Map<String, List<Color>> accentColors = {
   ]
 };
 
+// https://coolors.co/191817-2c2b2a-9b9a99-efeeed
+Color darkAccentColor  = Color(0xff191817);
 Color darkColor        = Color(0xff2c2b2a);
-Color darkAccentColor  = Color(0xff323130);
-Color lightAccentColor = Color(0xffefeeed);
-Color lightColor       = Color(0xfffcfbfa);
+Color lightAccentColor = Color(0xff9b9a99);
+Color lightColor       = Color(0xffefeeed);
 
 
 
