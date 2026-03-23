@@ -178,50 +178,6 @@ class AppBarShape extends ShapeBorder {
       prevPoint = nextPoint;
     }
 
-    
-    // Offset prevPointPos = Offset(
-    //   segments[1]/segments.last*rect.width,
-    //   rect.height+0.5*_strength + _strength*(random.nextDouble()-0.5)
-    // );
-
-    // Offset prevControlPos = Offset(
-    //   ((segments[0]+segments[1])/2 + (segments[1]-(segments[0]))*(random.nextDouble()-0.5)*_randomness)/segments.last*rect.width,
-    //   rect.height+0.5*_strength + _strength*(2*random.nextDouble()-1)
-    // );
-    
-    // path.quadraticBezierTo(
-    //   prevControlPos.dx,                                                        // x1
-    //   prevControlPos.dy,                                                        // y1
-    //   prevPointPos.dx,                                                          // x2
-    //   prevPointPos.dy                                                           // y2
-    // );
-
-    // for (int i=2; i<segments.length; i++) {
-    //   double nextXPos = ((segments[i-1]+segments[i])/2 + (segments[i]-(segments[i-1]))*(random.nextDouble()-0.5)*_randomness)/segments.last*rect.width;
-    //   double incline = (prevPointPos.dy-prevControlPos.dy)/(prevPointPos.dx-prevControlPos.dx);
-
-    //   prevControlPos = Offset(
-    //     nextXPos,
-    //     incline*nextXPos + (prevControlPos.dy - prevControlPos.dx*incline)
-    //   );
-
-    //   prevPointPos = Offset(
-    //     segments[i]/segments.last*rect.width,
-    //     rect.height+0.5*_strength + _strength*(random.nextDouble()-0.5)
-    //   );
-
-    //   if (i == segments.length-1) {
-    //     prevPointPos = Offset(prevPointPos.dx, rect.height+0.5*_strength);
-    //   }
-
-    //   path.quadraticBezierTo(
-    //     prevControlPos.dx,                                                      // x1
-    //     prevControlPos.dy,                                                      // y1
-    //     prevPointPos.dx,                                                        // x2
-    //     prevPointPos.dy                                                         // y2
-    //   );
-    // }
-
     path.lineTo(rect.width, 0);
     path.close();
     return path;
