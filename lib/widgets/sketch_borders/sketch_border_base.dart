@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart' show ShapeBorder;
+import 'package:flutter/rendering.dart' show ShapeBorder;
 
 import 'dart:math';
 
